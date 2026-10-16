@@ -1,0 +1,35 @@
+name: Check Sitemaps
+
+on:
+  # 每 4 小时运行一次（0点、4点、8点、12点、16点、20点 UTC）
+  schedule:
+    - cron: '0 */4 * * *'
+  # 允许手动触发
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run sitemap check
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: npm run check
+
+      - name: Summary
+        run: echo "Sitemap check completed at $(date)"

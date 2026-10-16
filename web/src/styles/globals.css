@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cyber-darker text-gray-100 font-display;
+  }
+
+  * {
+    @apply border-gray-800;
+  }
+}
+
+@layer components {
+  .neon-border {
+    @apply border border-neon-cyan/30 hover:border-neon-cyan/60 transition-colors duration-300;
+  }
+
+  .neon-text {
+    @apply text-neon-cyan;
+    text-shadow: 0 0 10px theme(colors.neon-cyan);
+  }
+
+  .card-cyber {
+    @apply bg-cyber-dark/80 backdrop-blur-sm border border-gray-800/50 rounded-lg;
+    background-image: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(153, 51, 255, 0.05) 100%);
+  }
+
+  .btn-cyber {
+    @apply px-6 py-3 rounded-md font-semibold tracking-wider uppercase text-sm;
+    @apply bg-gradient-to-r from-cyber-blue to-cyber-purple;
+    @apply hover:shadow-neon-glow transition-all duration-300;
+    @apply active:scale-95;
+  }
+
+  .btn-outline-cyber {
+    @apply px-6 py-3 rounded-md font-semibold tracking-wider uppercase text-sm;
+    @apply border-2 border-neon-cyan text-neon-cyan;
+    @apply hover:bg-neon-cyan hover:text-cyber-dark transition-all duration-300;
+    @apply active:scale-95;
+  }
+
+  .input-cyber {
+    @apply bg-cyber-dark/50 border border-gray-700 rounded-md px-4 py-3;
+    @apply focus:border-neon-cyan focus:outline-none focus:ring-2 focus:ring-neon-cyan/20;
+    @apply transition-all duration-300 font-mono text-sm;
+  }
+
+  .stat-card {
+    @apply card-cyber p-6 relative overflow-hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-1;
+    background: linear-gradient(90deg, transparent, theme(colors.neon-cyan), transparent);
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .badge-platform {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold;
+    @apply bg-gradient-to-r from-neon-cyan/20 to-neon-magenta/20;
+    @apply border border-neon-cyan/30 text-neon-cyan;
+  }
+
+  .game-card {
+    @apply card-cyber p-5 hover:border-neon-cyan/40 transition-all duration-300;
+    @apply hover:-translate-y-1 hover:shadow-neon-glow cursor-pointer;
+  }
+
+  .scrollbar-cyber::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-cyber::-webkit-scrollbar-track {
+    @apply bg-cyber-dark;
+  }
+
+  .scrollbar-cyber::-webkit-scrollbar-thumb {
+    @apply bg-neon-cyan/30 rounded-full;
+  }
+
+  .scrollbar-cyber::-webkit-scrollbar-thumb:hover {
+    @apply bg-neon-cyan/50;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+}

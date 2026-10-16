@@ -10,6 +10,7 @@ export const telegramConfig = {
 
 export const discordConfig = {
   token: null, // 从环境变量获取
+  channelId: null, // 从环境变量获取
 };
 
 /**
@@ -20,11 +21,13 @@ export function initConfig(env) {
   telegramConfig.token = env.TELEGRAM_BOT_TOKEN || "";
   telegramConfig.targetChat = env.TELEGRAM_TARGET_CHAT || "";
   discordConfig.token = env.DISCORD_TOKEN || "";
+  discordConfig.channelId = env.DISCORD_CHANNEL_ID || "";
 
   console.log("配置初始化完成");
   console.log("Telegram Token:", telegramConfig.token ? "已设置" : "未设置");
   console.log("Telegram Target Chat:", telegramConfig.targetChat || "未设置");
   console.log("Discord Token:", discordConfig.token ? "已设置" : "未设置");
+  console.log("Discord Channel ID:", discordConfig.channelId || "未设置");
 }
 
 /**

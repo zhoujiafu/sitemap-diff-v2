@@ -1,28 +1,26 @@
 {
-  "name": "site-bot-cloudflare",
-  "version": "1.0.0",
-  "description": "Site monitoring bot for Telegram and Discord - Cloudflare Workers version",
-  "main": "src/index.js",
+  "name": "sitemap-diff",
+  "version": "2.0.0",
+  "description": "Sitemap monitoring bot - GitHub Actions + Vercel version",
+  "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy",
-    "tail": "wrangler tail",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check": "node lib/check-sitemaps.js",
+    "dev": "vercel dev",
+    "deploy": "vercel deploy --prod"
   },
   "dependencies": {
-    "@cloudflare/workers-types": "^4.0.0"
+    "@supabase/supabase-js": "^2.39.0"
   },
   "devDependencies": {
-    "wrangler": "^3.0.0"
+    "vercel": "^33.0.0"
   },
   "keywords": [
-    "cloudflare",
-    "workers",
-    "telegram",
+    "sitemap",
+    "monitoring",
     "discord",
-    "bot",
-    "sitemap"
+    "telegram",
+    "bot"
   ],
-  "author": "Site Bot Team",
+  "author": "yangjia",
   "license": "MIT"
 }

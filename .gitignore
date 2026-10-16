@@ -29,9 +29,12 @@ venv/
 storage/
 /tmp/site-bot.log
 
-# Cloudflare Workers
+# Cloudflare Workers (legacy)
 .wrangler/
 dist/
+
+# Vercel
+.vercel/
 
 # 系统文件
 .DS_Store
@@ -43,3 +46,4 @@ Thumbs.db
 # 测试文件
 test-*.js
 
+.vercel
