@@ -12,7 +12,7 @@
     "@supabase/supabase-js": "^2.39.0"
   },
   "devDependencies": {
-    "vercel": "^33.0.0"
+    "vercel": "^64.3.1"
   },
   "keywords": [
     "sitemap",
